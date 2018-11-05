@@ -1,0 +1,38 @@
+import java io*;
+import java lang*;
+import java util*;
+
+static void main(){
+	Scanner in = new Scanner(System.in);
+	printCapitalized(in.next);
+	
+}
+
+
+static void printCapitalized(string inputstr){
+
+		//need a way to find the next word
+		//so the first word is at position (0) of string
+		// nextChar? then convert that to uppercase
+		
+		char nextChar; 
+		char firstLetter; 
+		// As the first character will definitely belong to a word in the string, it will be a special case
+		// so long as it is a letter we can capitalise it
+		if(Character.isLetter(inputstr.charAt(0))==true){
+				inputstr.charAt(0) = Character.toUpperCase(inputstr.charAt(0)) 
+		}
+		
+		//let's traverse the length of the string
+		for(int i=1; i< inputstr.length ; i++){
+		
+			//basically if there is a space followed by a character we know we've come to the first letter of a word
+		
+				if(Character.isLetter(inputstr.charAt(i)==false && inputstr.charAt(i+1)== true){
+						//we can thus capitalise that word			
+						inputstr.charAt(i+1) = Character.toUpperCase(inputstr.charAt(i+1)) ;			
+				}
+		}
+		
+		System.out.println(inputstr);
+}
