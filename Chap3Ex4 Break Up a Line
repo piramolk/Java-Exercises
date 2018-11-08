@@ -1,0 +1,41 @@
+public class BreakLineUp{
+
+ /*  This program will read one line of input typed by the user.
+       It will print the words from the input, one word to a line.
+       A word is defined to be a sequence of letters.  All non-letters
+       in the input are discarded.
+   */	      
+       	public static void main(String[] args){
+	
+		String input;
+		input = TextIO.getln();
+		char ch;        // One of the characters in line.
+		boolean didCR = true;
+		
+		TextIO.putln("Enter a line of text.");
+        TextIO.put("? ");
+        input = TextIO.getln();
+        TextIO.putln();
+
+
+		// if it is a character, you keep reading characters if it is not, you make a new line
+		// however if there are two words separated by several non letters there will be one or more blank lets
+		//to prevent this we can keep track of whether the previous output was a letter or carriage return
+		//if we find a non-letter we will only output a carriage return IF the previous output was not a carriage return
+		
+		
+		for(int i = 0;  i < input.length(); i++ ) {
+ 			 ch = input.charAt(i);
+  			 	if ( Character.isLetter(ch) ){
+   				 	   TextIO.put(ch);
+   				       didCR = false; //previous output was not a CR
+   				 }
+  				else{
+     					TextIO.putln();   
+     					didCR = true;
+     			}
+		}
+			
+		TextIO.putln(); //one final CR at the end		
+	}
+}
